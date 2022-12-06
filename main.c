@@ -91,6 +91,7 @@ int main(int argc, const char * argv[]) {
                 break;
                 
             case MENU_PATIENT:
+            	// 환자 정보를 가져와서 프린트엘리먼트...  
             	ifct_element
             	printf("age : %i\n", ifctele_getAge(ifct_element) );
                 
@@ -108,7 +109,7 @@ int main(int argc, const char * argv[]) {
                 
             case MENU_TRACK:
             	ifct_element
-            	printf("track:", ifctele_getHistPlaceIndex(ifct_element))
+            	printf("track: %d", ifctele_getHistPlaceIndex(ifct_element))
                     
                 break;
                 

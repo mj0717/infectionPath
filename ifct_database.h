@@ -16,4 +16,4 @@ void* ifctdb_getData(int index);        //get index'th data
 
 #endif /* ifct_database_h */
 
-ssssssssss
+

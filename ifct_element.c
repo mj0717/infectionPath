@@ -100,28 +100,33 @@ char countryName[N_PLACE+1][MAX_PLACENAME] =
 
 //구조체 구성  
 typedef struct ifs_ele{
-	//번호 정수 
-	//나이 정수 
-	//감염시점 정수 
-	//감염 직전 이동경로 (enum) place_t배열- N_HISTORY 
+	
+	int index;//번호 정수 
+	int age;//나이 정수 
+	int detected_time;//감염시점 정수 
+	place_t place[N_HISTORY];//감염 직전 이동경로 (enum) place_t배열- N_HISTORY 
+	
 } ifs_ele_t;
 
 
-static ifs_ele_t ifsarray[20];//나중에 바꿀 것 
-static int ifs_cnt;//몇 명의 환자가 들어있다
+//static ifs_ele_t ifsarray[20];//나중에 바꿀 것 
+//static int ifs_cnt;//몇 명의 환자가 들어있다
 
 
 void* ifctele_genElement(int index, int age, unsigned int detected_time, int history_place[N_HISTORY])
 {
-	ifsarray[ifs_cnt].index = index;
-	ifsarray[ifs_cnt].index = index;
-	ifsarray[ifs_cnt].index = index;
-	ifsarray[ifs_cnt].index = index;
+	ifs_ele_t *ptr;
+	
+	//ptr = malloc();
+	ptr-> index = index;
+	ptr-> age = age;
+	ptr-> detected_time = detected_time;
+	ptr-> history_place[N_HISTORY] = history_place[N_HISTORY];
 	
 	ifs_cnt++;
 	
-	return (void*)&ifsarray[인덱스]
-	 
+	return (void*)&ifsarray[ifs_cnt-1];
+	 //free x
 }
 
 
@@ -129,19 +134,35 @@ void* ifctele_genElement(int index, int age, unsigned int detected_time, int his
 
 int ifctele_getAge(void* obj)
 {
-	ifs_ele_t *strPtr = {ifs_ele_t *}obj;
+	ifs_ele_t *ptr = (ifs_ele_t *)obj;
 	
-	return(//포인터로 멤버에 접근해서 나이);
+	return(ptr->age);
  } 
-void ifsele_printElement(void* obj)
+ 
+int ifctele_getHistPlaceIndex(void* obj, int index)
 {
-	ifs_ele_t *strPtr = {ifs_ele_t *}obj;
+	ifs_ele_t *ptr = (ifs_ele_t *)obj;
 	
-	//print elements
+}
+//place 몇번째 장소냐가 index.
+
+
+
+unsigned int ifctele_getinfestedTime(void* obj)
+{
+	
 }
 
 
 
+void ifsele_printElement(void* obj)
+{
+	ifs_ele_t *ptr = (ifs_ele_t *)obj;
+	
+	//print elements
+}
+
+  
 
 
 
