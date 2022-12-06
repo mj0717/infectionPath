@@ -46,11 +46,11 @@ int main(int argc, const char * argv[]) {
     //1-2. loading each patient informations
     ifsele_genElement(...);
     while (3==fscanf(fp,"(%d)(%d)(%d)", &pIndex, &age, &time))
-{
+	{
 	for
-		fscanf(fp,"([%d])([%d])([%d])([%d])([%d])", 여기에는 뭘 써야하니???????/;;);
+		fscanf(fp,"%d",%placeHist[i]);
 	}    
-      
+      	
     
     //1-3. FILE pointer close
     fclose(fp);
@@ -97,15 +97,18 @@ int main(int argc, const char * argv[]) {
                 break;//int ifctele_getAge(void* obj);
                 
             case MENU_PLACE:
-                printf("infected place:%",장소 이름) ;
+            	ifct_element
+                printf("infected place : %s",ifctele_getHistPlaceIndex(ifct_element)) ;
                 break;
                 
             case MENU_AGE:
-                printf("range of age:") 
+            	ifct_element
+                printf("range of age :");
                 break;
                 
             case MENU_TRACK:
-            	printf
+            	ifct_element
+            	printf("track:", ifctele_getHistPlaceIndex(ifct_element))
                     
                 break;
                 

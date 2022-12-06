@@ -1,4 +1,4 @@
-//
+ //
 //  ifct_database.c
 //  Infection Path
 //  Database platform code for storing infest path elements
@@ -38,7 +38,7 @@ static node_t* genNode(void)
         ndPtr->prev = NULL;
     }
     
-    return ndPtr;
+    return ndPtr; 
 }
 
 static node_t* ifctList(int index)
