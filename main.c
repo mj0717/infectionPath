@@ -44,30 +44,33 @@ int main(int argc, const char * argv[]) {
     }
     
     //1-2. loading each patient informations
-    ifsele_genElement(...);
-    while (3==fscanf(fp,"(%d)(%d)(%d)", &pIndex, &age, &time))
+    
+    while (3==fscanf(fp,"(%i)(%i)(%i)", &pIndex, &age, &time))
 	{
-	for
-		fscanf(fp,"%d",%placeHist[i]);
-	}    
+		int i;
+		for(i=0;i<5;i++)
+			fscanf(fp,"%s",&placeHist[i]);
+			
+			
+		ifct_element = ifctele_genElement(pIndex, age, time, placeHist[N_HISTORY]);
+		
+		ifctdb_addTail(ifct_element);
+			
+	}   
       	
     
     //1-3. FILE pointer close
     fclose(fp);
     
-    {
+    /*{
     	int place1, place2, place3, place4, place5;
 		
 		place1=3;
 		place2=15;
-		place=;
-		place=;
-		place=;
-		
 		
 		printf("The first place is %s\n", ifsele_getPlaceName(place1)); 
 		printf("The second place is %s\n", ifsele_getPlaceName(place2)); 
-	}
+	}*/
     
     
     
@@ -92,24 +95,29 @@ int main(int argc, const char * argv[]) {
                 
             case MENU_PATIENT:
             	// 환자 정보를 가져와서 프린트엘리먼트...  
-            	ifct_element
-            	printf("age : %i\n", ifctele_getAge(ifct_element) );
-                
+            	//ifct_element;
+            	
+            
+            	printf("index: ");
+            	scanf("%i", pIndex );
+                ifctele_printElement(pIndex);
+            	
+            	
                 break;//int ifctele_getAge(void* obj);
                 
             case MENU_PLACE:
-            	ifct_element
-                printf("infected place : %s",ifctele_getHistPlaceIndex(ifct_element)) ;
+            	ifct_element;
+                //printf("infected place : %s",ifctele_getHistPlaceIndex(ifct_element)) ;
                 break;
                 
             case MENU_AGE:
-            	ifct_element
+            	ifct_element;
                 printf("range of age :");
                 break;
                 
             case MENU_TRACK:
-            	ifct_element
-            	printf("track: %d", ifctele_getHistPlaceIndex(ifct_element))
+            	ifct_element;
+            	printf("track: %i", ifctele_getHistPlaceIndex(ifct_element, pIndex));
                     
                 break;
                 

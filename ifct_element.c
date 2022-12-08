@@ -104,7 +104,7 @@ typedef struct ifs_ele{
 	int index;//번호 정수 
 	int age;//나이 정수 
 	int detected_time;//감염시점 정수 
-	place_t place[N_HISTORY];//감염 직전 이동경로 (enum) place_t배열- N_HISTORY 
+	place_t history_place[N_HISTORY];//감염 직전 이동경로 (enum) place_t배열- N_HISTORY 
 	
 } ifs_ele_t;
 
@@ -117,15 +117,17 @@ void* ifctele_genElement(int index, int age, unsigned int detected_time, int his
 {
 	ifs_ele_t *ptr;
 	
-	//ptr = malloc();
+	ptr = malloc(sizeof(struct ifs_ele));
 	ptr-> index = index;
 	ptr-> age = age;
 	ptr-> detected_time = detected_time;
-	ptr-> history_place[N_HISTORY] = history_place[N_HISTORY];
+	//ptr-> history_place[N_HISTORY] = history_place[N_HISTORY];
 	
-	ifs_cnt++;
+	return ptr;
 	
-	return (void*)&ifsarray[ifs_cnt-1];
+	//ifs_cnt++;
+	
+	//return (void*)&ifsarray[ifs_cnt-1];
 	 //free x
 }
 
@@ -152,14 +154,24 @@ unsigned int ifctele_getinfestedTime(void* obj)
 {
 	
 }
+ 
 
 
-
-void ifsele_printElement(void* obj)
+void ifctele_printElement(void* obj)
 {
+	int i;
 	ifs_ele_t *ptr = (ifs_ele_t *)obj;
 	
-	//print elements
+	printf("index : %i\n", ptr->index);
+	printf("Age : %i\n", ptr->age);
+	printf("detected_time : %i\n", ptr-> detected_time);
+	for(i=0;i<5;i++){
+	printf("place : %s ", ifctele_getPlaceName, (&ptr->history_place[i]));
+	}
+	
+	
+	
+	//return (void*)&ifsarray[ifs_cnt-1];	//print elements
 }
 
   
