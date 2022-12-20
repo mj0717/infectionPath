@@ -99,30 +99,33 @@ int main(int argc, const char * argv[]) {
             	
             
             	printf("index: ");
-            	scanf("%i", pIndex );
+            	scanf("%i", pIndex);
                 ifctele_printElement(pIndex);
+                
+                
             	
             	
                 break;//int ifctele_getAge(void* obj);
                 
             case MENU_PLACE:
-            	ifct_element;
-                //printf("infected place : %s",ifctele_getHistPlaceIndex(ifct_element)) ;
+            	
+				ifct_element;
+                printf("infected place : %s", *ifctele_getPlaceName) ;
                 break;
                 
             case MENU_AGE:
-            	ifct_element;
+            	//ifct_element;
                 printf("range of age :");
                 break;
                 
             case MENU_TRACK:
-            	ifct_element;
-            	printf("track: %i", ifctele_getHistPlaceIndex(ifct_element, pIndex));
+            	//ifct_element;
+            	printf("track: %i");
                     
                 break;
                 
             default:
-                printf("[ERROR Wrong menu selection! (%i), please choose between 0 ~ 4\n", menu_selection);
+                //printf("[ERROR Wrong menu selection! (%i), please choose between 0 ~ 4\n", menu_selection);
                 break;
         }
     

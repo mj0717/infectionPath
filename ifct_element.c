@@ -121,7 +121,7 @@ void* ifctele_genElement(int index, int age, unsigned int detected_time, int his
 	ptr-> index = index;
 	ptr-> age = age;
 	ptr-> detected_time = detected_time;
-	//ptr-> history_place[N_HISTORY] = history_place[N_HISTORY];
+	ptr-> history_place[N_HISTORY] = history_place[N_HISTORY];
 	
 	return ptr;
 	
@@ -145,14 +145,17 @@ int ifctele_getHistPlaceIndex(void* obj, int index)
 {
 	ifs_ele_t *ptr = (ifs_ele_t *)obj;
 	
+	return(ptr-> history_place[N_HISTORY]);
+	
 }
 //place 몇번째 장소냐가 index.
 
 
-
 unsigned int ifctele_getinfestedTime(void* obj)
 {
+	ifs_ele_t *ptr = (ifs_ele_t *)obj;
 	
+	return(ptr-> detected_time);
 }
  
 
@@ -169,16 +172,13 @@ void ifctele_printElement(void* obj)
 	printf("place : %s ", ifctele_getPlaceName, (&ptr->history_place[i]));
 	}
 	
+	return ;
 	
 	
 	//return (void*)&ifsarray[ifs_cnt-1];	//print elements
 }
 
   
-
-
-
-
 
 char *ifctele_getPlaceName(int placeIndex)
 {
