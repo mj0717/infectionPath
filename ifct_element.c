@@ -116,13 +116,15 @@ typedef struct ifs_ele{
 void* ifctele_genElement(int index, int age, unsigned int detected_time, int history_place[N_HISTORY])
 {
 	ifs_ele_t *ptr;
+	int i;
 	
 	ptr = malloc(sizeof(struct ifs_ele));
 	ptr-> index = index;
 	ptr-> age = age;
 	ptr-> detected_time = detected_time;
-	ptr-> history_place[N_HISTORY] = history_place[N_HISTORY];
-	
+	for(i=0;i<5;i++){
+		ptr-> history_place[i] = history_place[i];
+	}
 	return ptr;
 	
 	//ifs_cnt++;
@@ -138,6 +140,8 @@ int ifctele_getAge(void* obj)
 {
 	ifs_ele_t *ptr = (ifs_ele_t *)obj;
 	
+	
+	
 	return(ptr->age);
  } 
  
@@ -147,7 +151,7 @@ int ifctele_getHistPlaceIndex(void* obj, int index)
 	
 	return(ptr-> history_place[N_HISTORY]);
 	
-}
+}//교수님께 질문드리기.  
 //place 몇번째 장소냐가 index.
 
 

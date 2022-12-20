@@ -95,37 +95,57 @@ int main(int argc, const char * argv[]) {
                 
             case MENU_PATIENT:
             	// 환자 정보를 가져와서 프린트엘리먼트...  
-            	//ifct_element;
-            	
             
             	printf("index: ");
-            	scanf("%i", pIndex);
-                ifctele_printElement(pIndex);
+            	scanf("%i", &pIndex);
+            	
+            	ifct_element = ifctdb_getData(pIndex);
+                ifctele_printElement(ifct_element);
                 
                 
-            	
-            	
                 break;//int ifctele_getAge(void* obj);
                 
             case MENU_PLACE:
-            	
+            /*	
 				ifct_element;
-                printf("infected place : %s", *ifctele_getPlaceName) ;
-                break;
+				int i; 
+                for(i=0;i<5;i++){
+                	if (strcpy(placeHist[i],countryName[i])==0)// 모르겠어요 교수님.... 
+                		ifct_element = ifctdb_getData(pIndex);
+                		ifctele_printElement(ifct_element);
+                	
+				}
                 
+                */
             case MENU_AGE:
-            	//ifct_element;
-                printf("range of age :");
+            	
+            	ifct_element;
+            	
+            	int M;
+            	printf("range of age(M):");
+                scanf("%i", &M);
+                
+               	int m;
+                printf("range of age(m):");
+                scanf("%i", &m);
+                
+                if (m<=age && age<=M)
+					printf("%i",age);
+					
+                ifct_element = ifctdb_getData(pIndex);
+                ifctele_getAge(ifct_element);
+                
                 break;
+            
                 
             case MENU_TRACK:
-            	//ifct_element;
+            	ifct_element;
             	printf("track: %i");
                     
                 break;
                 
             default:
-                //printf("[ERROR Wrong menu selection! (%i), please choose between 0 ~ 4\n", menu_selection);
+                printf("[ERROR Wrong menu selection! (%i), please choose between 0 ~ 4\n", menu_selection);
                 break;
         }
     
