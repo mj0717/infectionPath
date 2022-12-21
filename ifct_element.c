@@ -151,7 +151,7 @@ int ifctele_getHistPlaceIndex(void* obj, int index)
 	
 	return(ptr-> history_place[N_HISTORY]);
 	
-}//교수님께 질문드리기.  
+}
 //place 몇번째 장소냐가 index.
 
 

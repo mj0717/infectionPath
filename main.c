@@ -110,7 +110,7 @@ int main(int argc, const char * argv[]) {
 				ifct_element;
 				int i; 
                 for(i=0;i<5;i++){
-                	if (strcpy(placeHist[i],countryName[i])==0)// 모르겠어요 교수님.... 
+                	if (strcpy(placeHist[i],countryName[i])==0)// 
                 		ifct_element = ifctdb_getData(pIndex);
                 		ifctele_printElement(ifct_element);
                 	
