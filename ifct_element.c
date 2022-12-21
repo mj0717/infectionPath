@@ -173,7 +173,7 @@ void ifctele_printElement(void* obj)
 	printf("Age : %i\n", ptr->age);
 	printf("detected_time : %i\n", ptr-> detected_time);
 	for(i=0;i<5;i++){
-	printf("place : %s ", ifctele_getPlaceName, (&ptr->history_place[i]));
+	printf("place : %s ", countryName[i]);
 	}
 	
 	return ;
