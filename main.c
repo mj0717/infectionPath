@@ -62,15 +62,6 @@ int main(int argc, const char * argv[]) {
     //1-3. FILE pointer close
     fclose(fp);
     
-    /*{
-    	int place1, place2, place3, place4, place5;
-		
-		place1=3;
-		place2=15;
-		
-		printf("The first place is %s\n", ifsele_getPlaceName(place1)); 
-		printf("The second place is %s\n", ifsele_getPlaceName(place2)); 
-	}*/
     
     
     
@@ -93,35 +84,35 @@ int main(int argc, const char * argv[]) {
                 printf("Exiting the program... Bye bye.\n");
                 break;
                 
-            case MENU_PATIENT:
-            	// 환자 정보를 가져와서 프린트엘리먼트...  
+            case MENU_PATIENT: 
             
             	printf("index: ");
             	scanf("%i", &pIndex);
             	
             	ifct_element = ifctdb_getData(pIndex);
-                ifctele_printElement(ifct_element);
+                ifctele_printElement(ifct_element);//환자 정보 출력 
                 
                 
                 break;
                 
-            case MENU_PLACE:
+          /*  case MENU_PLACE:
             	
 			ifct_element;
 			int i; 
 				
-           /*for(i=0;i<5;i++)
+            for(i=0;i<5;i++)
 			{  	
                	char *ifctele_getPlaceName(ifctele_getHistPlaceIndex);
                 ifct_element = ifctdb_getData(pIndex);	
-               	if (strcmp(countryName[i],placeHist[4])==0)// 
+               	if (strcmp(,placeHist[4])==0)// 
                 {
                 	ifct_element = ifctdb_getData(pIndex);
                 	ifctele_printElement(ifct_element);
 				}
 			}
-                */
                 
+               braek;*/
+			    
             case MENU_AGE:
             	
             	ifct_element;
@@ -134,13 +125,15 @@ int main(int argc, const char * argv[]) {
                 printf("range of age(m):");//최소 나이 입력  
                 scanf("%i", &m);
                 
-                for(pIndex=0;pIndex<5;pIndex++)
+				//나이 범위에 들어가는 환자의 정보 출력  
+               for(pIndex=0;pIndex<5;pIndex++)
 				{
 					ifct_element = ifctdb_getData(pIndex);
 					ifctele_getAge(ifct_element);
 					
 					if (m<=ifctele_getAge(ifct_element) && ifctele_getAge(ifct_element)<=M)
 					{
+						ifct_element = ifctdb_getData(pIndex);
                 		ifctele_printElement(ifct_element);
                 		
 					}	
@@ -194,20 +187,7 @@ int main(int argc, const char * argv[]) {
 				
                 break;*/
                 
-            int convertTimeToIndex(int time, int infestedTime)  
-			{
-				int index=-1;
-				if (time<=infestedTime && time>=infestedTime-N_HISTORY)
-				{
-					index=N_HISTORY-(infestedTime-time)-1;
-				}
-				
-				return index;
-			}  
-                
-            default:
-                printf("[ERROR Wrong menu selection! (%i), please choose between 0 ~ 4\n", menu_selection);
-                break;
+         
         }
     
     } while(menu_selection != 0);

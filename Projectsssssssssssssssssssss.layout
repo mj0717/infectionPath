@@ -12,9 +12,9 @@ CursorRow=19
 TopLine=1
 LeftChar=1
 [Editor_2]
-CursorCol=25
-CursorRow=168
-TopLine=151
+CursorCol=27
+CursorRow=156
+TopLine=139
 LeftChar=1
 [Editor_3]
 CursorCol=36
@@ -24,7 +24,7 @@ LeftChar=1
 [Editor_4]
 CursorCol=19
 CursorRow=123
-TopLine=105
+TopLine=135
 LeftChar=1
 [Editor_5]
 CursorCol=5
