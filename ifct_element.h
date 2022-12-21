@@ -16,6 +16,6 @@ void* ifctele_genElement(int index, int age, unsigned int detected_time, int his
 char* ifctele_getPlaceName(int placeIndex);
 int ifctele_getHistPlaceIndex(void* obj, int index);
 unsigned int ifctele_getinfestedTime(void* obj);
-int ifctele_getAge(void* obj);//17 18  19 비슷하게 접근   
+int ifctele_getAge(void* obj); 
 void ifctele_printElement(void* obj);
 #endif /* ifct_element_h */

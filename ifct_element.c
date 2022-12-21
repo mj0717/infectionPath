@@ -99,6 +99,7 @@ char countryName[N_PLACE+1][MAX_PLACENAME] =
 };
 
 //구조체 구성  
+
 typedef struct ifs_ele{
 	
 	int index;//번호 정수 
@@ -116,26 +117,26 @@ void* ifctele_genElement(int index, int age, unsigned int detected_time, int his
 	ifs_ele_t *ptr;
 	int i;
 	
-	ptr = malloc(sizeof(struct ifs_ele));
+	ptr = (ifs_ele_t*)malloc(sizeof(struct ifs_ele));
 	ptr->index = index;
 	ptr->age = age;
 	ptr->detected_time = detected_time;
 	for(i=0;i<5;i++){
-		ptr->history_place[i]= history_place[i];
+		ptr->history_place[i]=(place_t)history_place[i];
 	}
 	
 	return ptr;
 	
 	
 }
-
+//나 이  
 int ifctele_getAge(void* obj)
 {
 	ifs_ele_t *ptr = (ifs_ele_t *)obj;
 	
 	return(ptr->age);
  } 
- 
+//장소  
 int ifctele_getHistPlaceIndex(void* obj, int index)
 {
 	ifs_ele_t *ptr = (ifs_ele_t *)obj;
@@ -143,25 +144,23 @@ int ifctele_getHistPlaceIndex(void* obj, int index)
 	return(ptr->history_place[N_HISTORY]);
 	
 }
-//place 몇번째 장소냐가 index.
-
+//감염시간  
 unsigned int ifctele_getinfestedTime(void* obj)
 {
 	ifs_ele_t *ptr = (ifs_ele_t *)obj;
 	
 	return(ptr->detected_time);
 }
-
+//장소이름(문자)  
 char* ifctele_getPlaceName(int placeIndex)
 {	
 	return countryName[placeIndex];
 }
-
+//환자 정보  
 void ifctele_printElement(void* obj)
 {
 	ifs_ele_t *ptr = (ifs_ele_t *)obj;
 	int i;
-	
 	
 	printf("index : %i\n", ptr->index);
 	printf("Age : %i\n", ptr->age);
@@ -172,7 +171,7 @@ void ifctele_printElement(void* obj)
 	
 }
 
-
+//시점 값을 통해 장소 배열의 index를 산출하는 함수
 int convertTimeToIndex(int time, int infestedTime)  
 {
 	

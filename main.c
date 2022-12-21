@@ -95,9 +95,9 @@ int main(int argc, const char * argv[]) {
                 
                 break;
                 
-          /*  case MENU_PLACE:
+           case MENU_PLACE:
             	
-			ifct_element;
+		/*	ifct_element;
 			int i; 
 				
             for(i=0;i<5;i++)
@@ -127,19 +127,16 @@ int main(int argc, const char * argv[]) {
                 
 				//나이 범위에 들어가는 환자의 정보 출력  
                for(pIndex=0;pIndex<5;pIndex++)
-				{
-					ifct_element = ifctdb_getData(pIndex);
+               {
+               		ifct_element = ifctdb_getData(pIndex);
 					ifctele_getAge(ifct_element);
 					
 					if (m<=ifctele_getAge(ifct_element) && ifctele_getAge(ifct_element)<=M)
-					{
-						ifct_element = ifctdb_getData(pIndex);
-                		ifctele_printElement(ifct_element);
-                		
-					}	
+					
+                		ifctele_printElement(ifct_element);//환자 정보 출력  
 						
-				}
-               
+			   }
+				
             break;
             
                 
