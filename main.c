@@ -107,21 +107,25 @@ int main(int argc, const char * argv[]) {
                 
             case MENU_PLACE:
             	
-			/*ifct_element;
-				int i; 
-                for(i=0;i<5;i++){
-                	if (strcpy(placeHist[i],countryName[i])==0)// 
-                		ifct_element = ifctdb_getData(pIndex);
-                		ifctele_printElement(ifct_element);
-                	
-				}*/
-                
+			ifct_element;
+			int i; 
+				
+           /*for(i=0;i<5;i++)
+			{  	
+               	char *ifctele_getPlaceName(ifctele_getHistPlaceIndex);
+                ifct_element = ifctdb_getData(pIndex);	
+               	if (strcmp(countryName[i],placeHist[4])==0)// 
+                {
+                	ifct_element = ifctdb_getData(pIndex);
+                	ifctele_printElement(ifct_element);
+				}
+			}
+                */
                 
             case MENU_AGE:
             	
             	ifct_element;
             	
-            	int ifctele_getAge(ifct_element);
             	int M;
             	printf("range of age(M):");//최대 나이 입 력  
                 scanf("%i", &M);
@@ -130,43 +134,50 @@ int main(int argc, const char * argv[]) {
                 printf("range of age(m):");//최소 나이 입력  
                 scanf("%i", &m);
                 
-                if (m<=ifctele_getAge(ifct_element) && ifctele_getAge(ifct_element)<=M)
+                for(pIndex=0;pIndex<5;pIndex++)
 				{
-					printf("%i\n",ifctele_getAge(ifct_element));
 					ifct_element = ifctdb_getData(pIndex);
-                	ifctele_printElement(ifct_element);
+					ifctele_getAge(ifct_element);
+					
+					if (m<=ifctele_getAge(ifct_element) && ifctele_getAge(ifct_element)<=M)
+					{
+                		ifctele_printElement(ifct_element);
+                		
 					}	
-                else
-                	printf("no patient");
-                break;
+						
+				}
+               
+            break;
             
                 
             case MENU_TRACK:
             	ifct_element;
+            	
             	/*현재환자=입력값;
-				while(현재 누군가 있음)
+				while(현재환자==0)
 				{
 					전파자=trackinfester(현재환자);
-					if (전파자가 있으면)
-						printf("%i환자는 %i환자에게 전파됨\n", 현재환자, 전파자);
+					if (trackInfester==0)
+						printf("%i환자는 %i환자에게 전파됨\n", 현재환자, trackInfester);
 					else
 						최초전파자=현재환자;
-						현재환자=전파자; 
+						현재환자=trackinfester; 
 				 }
-				for(i번째 환자)
+				for(i=0;i<5;i++)
 				{
+				 
 					만난시간=isMet(현재환자, i번째 환자);
 					if (만난시간>0)//만났다면
 					{
 						if (지금까지 환자 중 만난시간이 가장 이른가?)
 						{
-							전파자=i;
+							trackInfester=i;
 							 
 						}
 					 } 
 				 } 
 				
-				 return 전파자;
+				 return trackInfester;
 				 
 				for(i=2;i<N_HISTORY;i++)  
 				{
@@ -183,7 +194,16 @@ int main(int argc, const char * argv[]) {
 				
                 break;*/
                 
-                
+            int convertTimeToIndex(int time, int infestedTime)  
+			{
+				int index=-1;
+				if (time<=infestedTime && time>=infestedTime-N_HISTORY)
+				{
+					index=N_HISTORY-(infestedTime-time)-1;
+				}
+				
+				return index;
+			}  
                 
             default:
                 printf("[ERROR Wrong menu selection! (%i), please choose between 0 ~ 4\n", menu_selection);

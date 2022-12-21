@@ -109,8 +109,6 @@ typedef struct ifs_ele{
 } ifs_ele_t;
 
 
-//static ifs_ele_t ifsarray[20];//나중에 바꿀 것 
-//static int ifs_cnt;//몇 명의 환자가 들어있다
 
 
 void* ifctele_genElement(int index, int age, unsigned int detected_time, int history_place[N_HISTORY])
@@ -119,28 +117,20 @@ void* ifctele_genElement(int index, int age, unsigned int detected_time, int his
 	int i;
 	
 	ptr = malloc(sizeof(struct ifs_ele));
-	ptr-> index = index;
-	ptr-> age = age;
-	ptr-> detected_time = detected_time;
+	ptr->index = index;
+	ptr->age = age;
+	ptr->detected_time = detected_time;
 	for(i=0;i<5;i++){
-		ptr-> history_place[i] = history_place[i];
+		ptr->history_place[i]=history_place[i];
 	}
 	return ptr;
 	
-	//ifs_cnt++;
 	
-	//return (void*)&ifsarray[ifs_cnt-1];
-	 //free x
 }
-
-
-
 
 int ifctele_getAge(void* obj)
 {
 	ifs_ele_t *ptr = (ifs_ele_t *)obj;
-	
-	
 	
 	return(ptr->age);
  } 
@@ -149,43 +139,46 @@ int ifctele_getHistPlaceIndex(void* obj, int index)
 {
 	ifs_ele_t *ptr = (ifs_ele_t *)obj;
 	
-	return(ptr-> history_place[N_HISTORY]);
+	return(ptr->history_place[N_HISTORY]);
 	
 }
 //place 몇번째 장소냐가 index.
-
 
 unsigned int ifctele_getinfestedTime(void* obj)
 {
 	ifs_ele_t *ptr = (ifs_ele_t *)obj;
 	
-	return(ptr-> detected_time);
+	return(ptr->detected_time);
 }
- 
 
+char *ifctele_getPlaceName(int placeIndex)
+{	
+	return countryName[placeIndex];
+}
 
 void ifctele_printElement(void* obj)
 {
-	int i;
 	ifs_ele_t *ptr = (ifs_ele_t *)obj;
+	int i;
 	
 	printf("index : %i\n", ptr->index);
 	printf("Age : %i\n", ptr->age);
 	printf("detected_time : %i\n", ptr-> detected_time);
 	for(i=0;i<5;i++){
-	printf("place : %s ", countryName[i]);
+		printf("place : %s ", ifctele_getPlaceName(ptr->history_place[i]));
 	}
 	
-	return ;
-	
-	
-	//return (void*)&ifsarray[ifs_cnt-1];	//print elements
 }
 
-  
 
-char *ifctele_getPlaceName(int placeIndex)
+int convertTimeToIndex(int time, int infestedTime)  
 {
 	
-	return countryName[placeIndex];
-}
+	int index=-1;
+	if (time<=infestedTime && time>=infestedTime-N_HISTORY)
+	{
+		index=N_HISTORY-(infestedTime-time)-1;
+	}
+				
+	return index;
+	} 			
