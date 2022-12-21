@@ -120,21 +120,24 @@ int main(int argc, const char * argv[]) {
             case MENU_AGE:
             	
             	ifct_element;
+            	
             	int ifctele_getAge(ifct_element);
             	int M;
-            	printf("range of age(M):");
+            	printf("range of age(M):");//최대 나이 입 력  
                 scanf("%i", &M);
                 
                	int m;
-                printf("range of age(m):");
+                printf("range of age(m):");//최소 나이 입력  
                 scanf("%i", &m);
                 
                 if (m<=ifctele_getAge(ifct_element) && ifctele_getAge(ifct_element)<=M)
-					printf("%i",ifctele_getAge(ifct_element));
-					
-                ifct_element = ifctdb_getData(pIndex);
-                ifctele_getAge(ifct_element);
-                
+				{
+					printf("%i\n",ifctele_getAge(ifct_element));
+					ifct_element = ifctdb_getData(pIndex);
+                	ifctele_printElement(ifct_element);
+					}	
+                else
+                	printf("no patient");
                 break;
             
                 
@@ -176,7 +179,11 @@ int main(int argc, const char * argv[]) {
 				 } 
                 
 				return 만난시간;    
+			
+				
                 break;*/
+                
+                
                 
             default:
                 printf("[ERROR Wrong menu selection! (%i), please choose between 0 ~ 4\n", menu_selection);
